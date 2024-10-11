@@ -72,7 +72,7 @@ do the opposite: create 'data_amp_data_and_their_self_reports' by joining data_a
 
 ```{r}
 
-data_amp_data_and_their_self_reports <- data_amp_summary_subset |> right_join(data_selfreport_summary_subset, by = join_by(unique_id))
+data_amp_data_and_their_self_reports<- data_selfreport_summary_subset |> right_join(data_amp_summary_subset, by = join_by(unique_id))
 
 ```
 
@@ -82,7 +82,7 @@ create data_combined_2 by joining 'data_combined' and data_selfreport_summary_su
 
 ```{r}
 
-data_combined_2 <- data_combined |> semi_join(data_selfreport_summary_subset, join_by(unique_id))
+data_combined_2 <- data_combined |> inner_join(data_selfreport_summary_subset, join_by(unique_id))
 
 ```
 
